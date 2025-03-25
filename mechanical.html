@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Engineering - Study Materials</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+           
+        </ul>
+    </nav>
+
+    <!-- Materials Section -->
+    <div class="materials-container">
+        <h1>Mechanical Engineering Materials</h1>
+        <ul id="materials-list">
+            <!-- Materials dynamically added via JavaScript -->
+        </ul>
+    </div>
+
+    <script>
+        const materials = [
+            { name: 'Thermodynamics Guide', file: 'matirials/thermodynamics.pdf' },
+            { name: 'Fluid Mechanics Notes', file: 'matirials/fluid-mechanics.pdf' },
+            { name: 'Mechanics of Materials', file: 'matirials/mechanics-of-materials.pdf' },
+            { name: 'Engineering Drawing', file: 'matirials/engineering-drawing.pdf' },
+        ];
+
+        const materialsList = document.getElementById('materials-list');
+        materials.forEach(material => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <span>${material.name}</span>
+                <button onclick="downloadMaterial('${material.name}')">Download</button>
+                <button onclick="viewMaterial('${material.file}')">View</button>
+            `;
+            materialsList.appendChild(listItem);
+        });
+
+        function downloadMaterial(name) {
+            alert(`${name} downloaded!`);
+        }
+
+        function viewMaterial(file) {
+            window.open(file, '_blank');
+        }
+    </script>
+</body>
+</html>

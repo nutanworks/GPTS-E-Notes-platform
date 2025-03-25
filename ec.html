@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Engineering - Study Materials</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+            
+        </ul>
+    </nav>
+
+    <!-- Materials Section -->
+    <div class="materials-container">
+        <h1>Electrical Engineering Materials</h1>
+        <ul id="materials-list">
+            <!-- Materials dynamically added via JavaScript -->
+        </ul>
+    </div>
+
+    <script>
+        const materials = [
+            { name: 'Circuit Theory Notes', file: 'materials/circuit-theory.pdf' },
+            { name: 'Power Systems Guide', file: 'materials/power-systems.pdf' },
+            { name: 'Control Systems Notes', file: 'materials/control-systems.pdf' },
+            { name: 'Electrical Machines', file: 'materials/electrical-machines.pdf' },
+        ];
+
+        const materialsList = document.getElementById('materials-list');
+        materials.forEach(material => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <span>${material.name}</span>
+                <button onclick="downloadMaterial('${material.name}')">Download</button>
+                <button onclick="viewMaterial('${material.file}')">View</button>
+            `;
+            materialsList.appendChild(listItem);
+        });
+
+        function downloadMaterial(name) {
+            alert(`${name} downloaded!`);
+        }
+
+        function viewMaterial(file) {
+            window.open(file, '_blank');
+        }
+    </script>
+</body>
+</html>
