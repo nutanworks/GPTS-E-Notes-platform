@@ -12,10 +12,10 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="downloads.html">Downloads</a></li>
-           
         </ul>
     </nav>
 
+    
     <!-- Materials Section -->
     <div class="materials-container">
         <h1>Computer Science Materials</h1>
@@ -23,33 +23,17 @@
             <!-- Materials dynamically added via JavaScript -->
         </ul>
     </div>
-
-    <script>
-        const materials = [
-            { name: 'Python Basics', file: 'matirials/pythonbasics.pdf' },
-            { name: 'Operating Systems Notes', file: 'matirials/aws.pdf' },
-            { name: 'Database Management Systems', file: 'matirials/dbms.pdf' },
-            { name: 'Computer Networks Guide', file: 'matirials/networks.pdf' },
-        ];
-
-        const materialsList = document.getElementById('materials-list');
-        materials.forEach(material => {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `
-                <span>${material.name}</span>
-                <button onclick="downloadMaterial('${material.name}')">Download</button>
-                <button onclick="viewMaterial('${material.file}')">View</button>
-            `;
-            materialsList.appendChild(listItem);
-        });
-
-        function downloadMaterial(name) {
-            alert(`${name} downloaded!`);
-        }
-
-        function viewMaterial(file) {
-            window.open(file, '_blank');
-        }
-    </script>
+    <div class="home-container">
+        <br>
+        <br>
+        <br>
+          <center> <h2>Select your semister to view related study materials</h2></center>
+           <div class="branches">
+               <a href="cs1sem.html" class="branch-btn">1st Year</a>
+               <a href="cs2ndsem.html" class="branch-btn">2nd Year</a>
+               <a href="cs3rd.html" class="branch-btn">3rd Year</a>
+           </div>
+       </div>
+    
 </body>
 </html>

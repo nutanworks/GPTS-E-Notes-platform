@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Civil Engineering - Study Materials</title>
+    <title>Computer Science - Study Materials</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -22,19 +21,18 @@
 
     <!-- Materials Section -->
     <div class="materials-container">
-        <h1>Civil Engineering Materials</h1>
+        <h1>Computer Science 2nd Year</h1>
         <ul id="materials-list">
             <!-- Materials dynamically added via JavaScript -->
         </ul>
     </div>
-
     <script>
         const materials = [
-            { name: 'Structural Engineering Guide', file: 'matirials/aws.pdf' },
-            { name: 'Concrete Technology Notes', file: 'materials/concrete-technology.pdf' },
-            { name: 'Geotechnical Engineering', file: 'materials/geotechnical-engineering.pdf' },
-            { name: 'Hydrology and Water Resources', file: 'materials/hydrology.pdf' },
-        ];
+        { name: 'Python Basics', file: 'matirials/pythonbasics.pdf' },
+        { name: 'Operating Systems Notes', file: 'matirials/aws.pdf' },
+        { name: 'Database Management Systems', file: 'matirials/dbms.pdf' },
+        { name: 'Computer Networks Guide', file: 'matirials/networks.pdf' },
+       ];
 
         const materialsList = document.getElementById('materials-list');
         const downloadedMaterials = JSON.parse(localStorage.getItem('downloadedMaterials')) || [];

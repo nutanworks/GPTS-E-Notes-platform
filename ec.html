@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electrical Engineering - Study Materials</title>
+    <title>Electronics and Communication - Study Materials</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,44 +12,28 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="downloads.html">Downloads</a></li>
-            
         </ul>
     </nav>
 
+    
     <!-- Materials Section -->
     <div class="materials-container">
-        <h1>Electrical Engineering Materials</h1>
+        <h1>Electronics and Communication</h1>
         <ul id="materials-list">
             <!-- Materials dynamically added via JavaScript -->
         </ul>
     </div>
-
-    <script>
-        const materials = [
-            { name: 'Circuit Theory Notes', file: 'materials/circuit-theory.pdf' },
-            { name: 'Power Systems Guide', file: 'materials/power-systems.pdf' },
-            { name: 'Control Systems Notes', file: 'materials/control-systems.pdf' },
-            { name: 'Electrical Machines', file: 'materials/electrical-machines.pdf' },
-        ];
-
-        const materialsList = document.getElementById('materials-list');
-        materials.forEach(material => {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `
-                <span>${material.name}</span>
-                <button onclick="downloadMaterial('${material.name}')">Download</button>
-                <button onclick="viewMaterial('${material.file}')">View</button>
-            `;
-            materialsList.appendChild(listItem);
-        });
-
-        function downloadMaterial(name) {
-            alert(`${name} downloaded!`);
-        }
-
-        function viewMaterial(file) {
-            window.open(file, '_blank');
-        }
-    </script>
+    <div class="home-container">
+        <br>
+        <br>
+        <br>
+          <center> <h2>Select the years to view related study materials</h2></center>
+           <div class="branches">
+               <a href="ec1st.html" class="branch-btn">1st Year</a>
+               <a href="ec2nd.html" class="branch-btn">2nd Year</a>
+               <a href="ec3rd.html" class="branch-btn">3rd Year</a>
+           </div>
+       </div>
+    
 </body>
 </html>

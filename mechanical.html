@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mechanical Engineering - Study Materials</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Mechanical Engineering Materials - Study Materials</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -12,9 +12,13 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="downloads.html">Downloads</a></li>
-           
         </ul>
     </nav>
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search for notes..." onkeyup="filterMaterials()">
+    </div>
 
     <!-- Materials Section -->
     <div class="materials-container">
@@ -32,23 +36,45 @@
             { name: 'Engineering Drawing', file: 'matirials/engineering-drawing.pdf' },
         ];
 
+
         const materialsList = document.getElementById('materials-list');
+        const downloadedMaterials = JSON.parse(localStorage.getItem('downloadedMaterials')) || [];
+
+        // Display materials
         materials.forEach(material => {
             const listItem = document.createElement('li');
             listItem.innerHTML = `
                 <span>${material.name}</span>
-                <button onclick="downloadMaterial('${material.name}')">Download</button>
+                <a href="${material.file}" download>
+                    <button onclick="downloadMaterial('${material.name}')">Download</button>
+                </a>
                 <button onclick="viewMaterial('${material.file}')">View</button>
             `;
             materialsList.appendChild(listItem);
         });
 
+        // Download function
         function downloadMaterial(name) {
             alert(`${name} downloaded!`);
+            if (!downloadedMaterials.includes(name)) {
+                downloadedMaterials.push(name);
+                localStorage.setItem('downloadedMaterials', JSON.stringify(downloadedMaterials));
+            }
         }
 
+        // View function
         function viewMaterial(file) {
             window.open(file, '_blank');
+        }
+
+        // Search function
+        function filterMaterials() {
+            const searchQuery = document.getElementById('search-bar').value.toLowerCase();
+            const items = materialsList.getElementsByTagName('li');
+            Array.from(items).forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchQuery) ? '' : 'none';
+            });
         }
     </script>
 </body>

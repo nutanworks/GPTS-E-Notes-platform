@@ -25,7 +25,7 @@ body::after {
 /* Navigation Bar */
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     padding: 15px 0;
     background: rgba(0, 0, 0, 0.8);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
@@ -57,6 +57,61 @@ body::after {
 .navbar a:hover {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 5px;
+}
+.branches {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.branch-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    animation: bounceIn 1.2s ease-out;
+}
+
+.branch-btn:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+/* Search Bar */
+.search-container {
+margin-top: 30px;
+text-align: center;
+}
+
+#search-bar {
+padding: 10px;
+width: 50%;
+border: 2px solid #fff;
+border-radius: 20px;
+background: rgba(255, 255, 255, 0.15);
+color: #fff;
+font-size: 1.1rem;
+outline: none;
+transition: all 0.3s ease-in-out;
+}
+
+#search-bar::placeholder {
+color: rgba(255, 255, 255, 0.7);
+}
+
+#search-bar:hover,
+#search-bar:focus {
+background: rgba(255, 255, 255, 0.25);
+color: #fff;
+width: 55%;
 }
 
 /* Materials Section */
