@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civil Engineering - Study Materials</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="continue.html">Home</a></li>
+            <li><a href="branches.html">Branches</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contect.html">Contact </a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+        </ul>
+    </nav>
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search for notes..." onkeyup="filterMaterials()">
+    </div>
+
+    <!-- Materials Section -->
+    <div class="materials-container">
+        <h1>Civil Engineering 1st year</h1>
+        <ul id="materials-list">
+            <!-- Materials dynamically added via JavaScript -->
+        </ul>
+    </div>
+    <script>
+       const materials = [
+            { name: 'Basic Surveying', file: 'matirials1/basicserve.pdf' },
+            { name: 'CAEG Manual', file: 'matirials1/caegmanual.pdf' },
+            { name: 'FEEE Manual', file: 'matirials1/FEEE manual.pdf' },
+            { name: 'statistics unit1', file: 'matirials1/statsunit1.pdf' },
+            { name: 'PMS unit1', file: 'matirials1/pms1.pdf' },
+            { name: 'PMS unit2', file: 'matirials1/pms2.pdf' },
+            { name: 'PMS unit3', file: 'matirials1/pms3.pdf' },
+            { name: 'PMS unit4', file: 'matirials1/pms4.pdf' },
+            { name: 'PMS unit5', file: 'matirials1/pms5.pdf' },
+            { name: 'PMS unit6', file: 'matirials1/pms6.pdf' }, 
+            { name: 'ITskills Manual', file: 'matirials1/itskillmanual.pdf' },
+            { name: 'Communication skills', file: 'matirials1/comskill.pdf' },
+        ];
+
+        const materialsList = document.getElementById('materials-list');
+        const downloadedMaterials = JSON.parse(localStorage.getItem('downloadedMaterials')) || [];
+
+        // Display materials
+        materials.forEach(material => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <span>${material.name}</span>
+                <a href="${material.file}" download>
+                    <button onclick="downloadMaterial('${material.name}')">Download</button>
+                </a>
+                <button onclick="viewMaterial('${material.file}')">View</button>
+            `;
+            materialsList.appendChild(listItem);
+        });
+
+        // Download function
+        function downloadMaterial(name) {
+            alert(`${name} downloaded!`);
+            if (!downloadedMaterials.includes(name)) {
+                downloadedMaterials.push(name);
+                localStorage.setItem('downloadedMaterials', JSON.stringify(downloadedMaterials));
+            }
+        }
+
+        // View function
+        function viewMaterial(file) {
+            window.open(file, '_blank');
+        }
+
+        // Search function
+        function filterMaterials() {
+            const searchQuery = document.getElementById('search-bar').value.toLowerCase();
+            const items = materialsList.getElementsByTagName('li');
+            Array.from(items).forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchQuery) ? '' : 'none';
+            });
+        }
+    </script>
+    <footer class="footer">
+        <div class="footer-container">
+            <p>© 2025 Government Polytechnic Siddapur E-Notes platform. All Rights Reserved.</p>
+            
+        </div>
+    </footer>
+</body>
+</html>

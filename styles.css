@@ -20,17 +20,46 @@ body::after {
     backdrop-filter: blur(5px);
     z-index: -1;
 }
-
+/* Button Styles */
+button {
+    background-color: #fbfffb; 
+    color: rgb(8, 7, 7);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s, background-color 0.4s; /* Smooth transitions */
+  }
+  
+  /* Hover Effect */
+  button:hover {
+    background-color: #b2e5f7; 
+    transform: scale(1.1); 
+    animation: bounce 0.4s; 
+  }
+  
+  /* Bounce Animation */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0); /* Default position */
+    }
+    50% {
+      transform: translateY(-5px); /* Move upward */
+    }
+  }
+  
 /* Navigation Bar */
 .navbar {
     display: flex;
-    justify-content: left ;
+    justify-content: right ;
+    height: 30px;
     background: rgba(0, 0, 0, 0.7);
-    padding: 8px 0;
+    padding: 12px 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 6px rgba(6, 6, 6, 0.4);
 }
 a{
     margin-right: 20px;
@@ -51,7 +80,7 @@ a{
     text-decoration: none;
     color: white;
     font-size: 1.2rem;
-    padding: 0px 20px;
+    padding: 5px 20px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -68,13 +97,13 @@ a{
 .home-container {
     text-align: center;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 30%;
+    transform: translateY(-30%);
 }
 
 .home-container h1 {
     font-size: 3rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     animation: fadeInDown 1s ease-out;
 }
 
@@ -84,15 +113,20 @@ a{
     animation: fadeInUp 1s ease-out;
 }
 
-/* Branch Buttons */
 .branches {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
+#h2{
+    text-align: center;
+}
+#p{
+    text-align: center;
+}
 
-.branch-btn {
+.branch {
     display: inline-block;
     padding: 15px 30px;
     text-decoration: none;
@@ -100,12 +134,12 @@ a{
     background: rgba(255, 255, 255, 0.2);
     border: 2px solid white;
     color: white;
-    border-radius: 30px;
+    border-radius: 20px;
     transition: all 0.3s ease-in-out;
     animation: bounceIn 1.2s ease-out;
 }
 
-.branch-btn:hover {
+.branch:hover {
     background: white;
     color: black;
     box-shadow: 0 8px 15px rgba(255, 255, 255, 0.3);
@@ -156,4 +190,38 @@ a{
     .home-container {
         padding: 10px; 
     }
+}
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+#about-us {
+    background-color: #2c2b2b;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 800px;
+    text-align: center;
+}
+
+#about-us h1 {
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#about-us p {
+    font-size: 1em;
+    color: #e6e4e4;
+    margin-bottom: 10px;
+    text-align: center;
 }

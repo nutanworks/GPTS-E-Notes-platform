@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Science - Study Materials</title>
+    <title>Electronics and Communication - Study Materials</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="continue.html">Home</a></li>
+            <li><a href="branches.html">Branches</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contect.html">Contact </a></li>
             <li><a href="downloads.html">Downloads</a></li>
         </ul>
     </nav>
 
     <!-- Search Section -->
     <div class="search-container">
-        <input type="text" id="search-bar" placeholder="Search for notes..." onkeyup="filterMaterials()">
+        <input type="text" id="search-bar" placeholder="Search for notes... Ex:- pms " onkeyup="filterMaterials()">
     </div>
 
     <!-- Materials Section -->
     <div class="materials-container">
-        <h1>Computer Science 1st year</h1>
+        <h1>Electronics and Communication 3rd year</h1>
         <ul id="materials-list">
             <!-- Materials dynamically added via JavaScript -->
         </ul>
     </div>
     <script>
         const materials = [
-            { name: 'Circuit Theory Notes', file: 'materials/circuit-theory.pdf' },
-            { name: 'Power Systems Guide', file: 'materials/power-systems.pdf' },
-            { name: 'Control Systems Notes', file: 'materials/control-systems.pdf' },
-            { name: 'Electrical Machines', file: 'materials/electrical-machines.pdf' },
+            { name: 'Animations & Robotics introduction', file: 'matirials3/rn.pdf' },
+            { name: 'Animations & Robotics Joint', file: 'matirials3/rjoint.pdf' },
+            { name: 'Animations & Robotics Coordinate system', file: 'matirials3/rco.pdf' },
+            { name: 'Animations & Robotics SENSOR CLASSIFICATION ', file: 'matirials3/rs.pdf' },
         ];
 
         const materialsList = document.getElementById('materials-list');
@@ -74,5 +77,11 @@
             });
         }
     </script>
+    <footer class="footer">
+        <div class="footer-container">
+            <p>© 2025 Government Polytechnic Siddapur E-Notes platform. All Rights Reserved.</p>
+            
+        </div>
+    </footer>
 </body>
 </html>
