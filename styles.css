@@ -190,9 +190,20 @@ body::after {
     margin-bottom: 40px;
     animation: fadeInUp 1s ease-out;
 }
+/* Features Section */
+.boxs {
+    text-align: center;
+    padding: 30px;
+}
 
-.boxs{
-   text-align: center;
+.boxs ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.boxs li {
+    font-size: 1.2rem;
+    padding: 10px;
 }
 .home-container2 {
     display: flex;
@@ -210,7 +221,75 @@ body::after {
     animation: fadeInDown 1s ease-out;
 }
 
+.home-container2 .tagline {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .home-container2 h1 {
+        font-size: 2rem;
+    }
 
+    .home-container2 .tagline {
+        font-size: 1.2rem;
+    }
+
+    .boxs li {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-container2 {
+        padding: 15px;
+    }
+
+    .home-container2 h1 {
+        font-size: 1.8rem;
+    }
+
+    .home-container2 .tagline {
+        font-size: 1.1rem;
+    }
+
+    .boxs li {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-container2 h1 {
+        font-size: 1.6rem;
+    }
+
+    .home-container2 .tagline {
+        font-size: 1rem;
+    }
+
+    .boxs li {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+#h2{
+    font-family: 'Poppins', sans-serif; /* Modern & clean font */
+    font-weight: 600; /* Slightly bold for emphasis */
+    font-size: 1.2rem; /* Balanced size for readability */
+    color: #f5f5f5; /* Soft white for a sleek appearance */
+    letter-spacing: 0.5px; /* Subtle spacing for elegance */
+    text-transform: capitalize; /* Uniform capitalization */
+}
 /* Branch Buttons Section */
 .branches {
     display: flex;
