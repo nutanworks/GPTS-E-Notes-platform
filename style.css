@@ -3,7 +3,9 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Flexbox ensures footer stays at bottom */
+    min-height: 100vh; /* Full viewport height */
     background: url('gpt.jpg') no-repeat center center fixed; /* Background image */
     background-size: cover;
     color: #333;
@@ -18,102 +20,220 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); 
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px); /* Apply blur effect */
     z-index: -1;
 }
 
 /* Navigation Bar */
+
 .navbar {
     display: flex;
-    justify-content: flex-end; /* Align navigation items to the right */
-    align-items: center; /* Vertically center items */
-    height: 45px; /* Increase height for a modern look */
-    background: rgb(40, 38, 38); /* Solid black background */
-    padding: 10px 20px; /* Spacing inside the navbar */
+    justify-content: end; /* Improve spacing for smaller screens */
+    align-items: center;
+    height: 70px; /* Default height */
+    width: auto;
+    background: linear-gradient(to right, rgb(36, 36, 36), rgb(24, 23, 31));
+    padding: 0 15px;
     position: sticky;
     top: 0;
-    z-index: 1000; /* Keeps navbar above other elements */
-    box-shadow: 0 2px 6px rgba(197, 78, 78, 0.2); /* Subtle white shadow for elegance */
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(197, 78, 78, 0.2);
 }
 
+/* Responsive Navbar Items */
 .navbar ul {
-    list-style: none; /* Remove bullet points */
-    display: flex; /* Arrange items horizontally */
-    gap: 20px; /* Spacing between items */
+    list-style: none;
+    display: flex;
+    gap: 13px;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap; /* Wrap items for smaller screens */
 }
 
 .navbar li {
-    display: inline-block; /* Ensure items are inline */
-    border-right: 1px solid rgb(234, 211, 211); /* Add white line partition */
+    background-color: #232222;
+    display: inline-block;
+    border: 1px solid rgb(85, 85, 85);
+    border-radius: 8px; /* Rounded corners for cleaner look */
+    padding: 9px;
+    position: relative; /* For glowing effects */
+    overflow: hidden;
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
 }
 
-.navbar li:last-child {
-    border-right: none; /* Remove border from the last item */
+
+.navbar li::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(57, 240, 240, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: -1; /* Place behind content */
 }
 
+.navbar li:hover {
+    box-shadow: 0 0 10px 3px rgba(116, 170, 172, 0.8); /* Outer glow effect */
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+/* Navbar Links */
 .navbar a {
-    text-decoration: none; /* Remove underline from links */
-    color: white; /* White text for contrast */
-    font-size: 1.2rem; /* Increase font size for readability */
-    padding: 10px 20px; /* Add spacing inside each link */
-    transition: background-color 0.4s ease, transform 0.3s ease; /* Smooth hover effects */
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 8px 13px;
+    transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
-.navbar a:hover {
-    background-color: rgb(84, 85, 85); /* Subtle hover effect */
-    color:rgb(255, 255, 208);
-    border-radius: 5px; /* Rounded corners on hover */
+/* Glowing Light Animation */
+@keyframes lightPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
 }
+
+/* Mobile Portrait Responsiveness */
+@media (max-width: 768px) and (orientation: portrait) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        height: auto;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .navbar li {
+        margin-bottom: 10px; /* Add spacing between items */
+        width: 50%;
+    }
+
+    .navbar a {
+        font-size: 1rem;
+        text-align: center; /* Center text for cleaner look */
+    }
+}
+
+/* Mobile Landscape Responsiveness */
+@media (max-width: 768px) and (orientation: landscape) {
+    .navbar {
+        flex-direction: row; /* Arrange items horizontally like a laptop */
+        height: 70px; /* Match laptop height */
+    }
+
+    .navbar ul {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .navbar li {
+        margin-bottom: 0; /* Remove spacing between items */
+        width: auto; /* Adjust width for horizontal alignment */
+    }
+
+    .navbar a {
+        font-size: 1.2rem; /* Match laptop font size */
+    }
+}
+
+/* Tablet Responsiveness */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar ul {
+        justify-content: center; /* Center navbar items */
+    }
+
+    .navbar a {
+        font-size: 1.1rem;
+    }
+}
+#h2{
+    color: whitesmoke;
+}
+
+/* Home Section */
+.home-container {
+    display: flex; /* Flexbox for alignment */
+    flex-direction: column;
+    justify-content: center; /* Vertically center items */
+    align-items: center; /* Horizontally center items */
+    text-align: center;
+    height: 60vh; /
+    margin: 0 auto;
+}
+
+.home-container h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.home-container p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    animation: fadeInUp 1s ease-out;
+}
+
 /* Branch Buttons Section */
 .branches {
     display: flex;
-    
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
     margin: 30px auto;
     font-weight: bold;
-
 }
 
 .branch-btn {
-    display: inline-block;
     text-decoration: none;
     padding: 15px 30px;
     font-size: 1.1rem;
-    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    background: rgba(255, 255, 255, 0.2);
     color: #fff;
     border: 2px solid white;
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Soft shadow */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    animation: fadeInUp 0.8s ease-out; /* Smooth entrance */
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .branch-btn:hover {
     background: white;
     color: black;
-    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3); /* Enhanced hover shadow */
-    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
 }
 
 /* Search Bar Section */
 .search-container {
     margin: 40px auto;
     text-align: center;
+    position: relative;
+    width: 80%; /* Adjust width for mobile scaling */
 }
 
 #search-bar {
     padding: 15px;
-    width: 50%;
+    width: 70%; /* Full width within container */
     border: 2px solid #fff;
-    border-radius: 8px;
+    border-radius: 15px;
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    background: rgba(255, 255, 255, 0.1);
     color: #fff;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, width 0.3s ease-in-out;
 }
@@ -124,14 +244,14 @@ body::after {
 
 #search-bar:focus {
     border-color: #007BFF;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4); /* Blue glow */
-    width: 55%; /* Expand on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
 }
 
 /* Materials Section */
 .materials-container {
     text-align: center;
     margin-top: 50px;
+    padding: 0 20px; /* Add padding for smaller screens */
 }
 
 .materials-container h1 {
@@ -139,12 +259,6 @@ body::after {
     color: white;
     margin-bottom: 20px;
     animation: fadeInDown 1s ease-out;
-}
-#h2{
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    text-align: center;
-    transform: translateY(-30%);
 }
 
 #materials-list {
@@ -155,29 +269,28 @@ body::after {
 }
 
 #materials-list li {
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    background: rgba(255, 255, 255, 0.9);
     margin: 10px auto;
     padding: 15px;
     border-radius: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center material items */
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    gap: 10px; /* Add gap between buttons if needed */
+    gap: 10px;
 }
 
 #materials-list li span {
-    flex: 1; /* Ensure material name takes space */
+    flex: 1;
 }
 
 #materials-list li a, #materials-list li button {
-    margin-left: auto; /* Move buttons to end of the line */
-    display: inline-flex; /* Align buttons side-by-side */
+    margin-left: auto;
+    display: inline-flex;
     align-items: center;
     text-align: center;
 }
-
 
 #materials-list li:hover {
     transform: translateY(-3px);
@@ -200,7 +313,18 @@ body::after {
     transform: translateY(-3px);
 }
 
-/* Animations */
+/* Footer Section */
+.footer {
+    background-color: #2a2a2b;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframe Animations */
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -223,14 +347,51 @@ body::after {
     }
 }
 
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .home-container h1 {
+        font-size: 2.5rem;
+    }
+    #materials-list li {
+        padding: 10px; /* Adjust padding for tablets */
+    }
+}
 
-.footer {
-    background-color: #212020;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    position: relative; /* Change from fixed */
-    bottom: 0;
-    width: 100%;
-    margin-top: auto; /* Push the footer to the bottom if content is less */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar li {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #search-bar {
+        width: 75%;
+    }
+
+    .home-container h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul {
+        gap: 10px;
+    }
+
+    .navbar a {
+        font-size: 1rem;
+    }
+
+    #search-bar {
+        width: 90%;
+    }
+
+    #materials-list li {
+        font-size: 0.9rem; /* Smaller font for mobile */
+    }
 }
