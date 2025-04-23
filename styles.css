@@ -190,6 +190,16 @@ body::after {
     margin-bottom: 40px;
     animation: fadeInUp 1s ease-out;
 }
+.home-container .tagline {
+    font-size: 15px;
+    font-style: italic;
+    color: white;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
 /* Responsive container styles */
 
 .home-container2 {
@@ -219,7 +229,7 @@ body::after {
 
 /* Heading styles */
 #h1 {
-    font-size: 30px;
+    font-size: 33px;
     font-weight: bold;
     color: #e7f648;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
