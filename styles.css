@@ -279,6 +279,7 @@ li {
 .footer-container {
     text-align: center;
     padding: 15px;
+    max-width: 100%;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
 }
